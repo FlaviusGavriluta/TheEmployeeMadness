@@ -8,6 +8,7 @@ import ErrorPage from "./Pages/ErrorPage";
 import EmployeeList from "./Pages/EmployeeList";
 import EmployeeCreator from "./Pages/EmployeeCreator";
 import EmployeeUpdater from "./Pages/EmployeeUpdater";
+import EquipmentCreator from "./Pages/EquipmentCreator";
 
 import "./index.css";
 import TableTest from "./Pages/TableTest";
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/create",
         element: <EmployeeCreator />,
+      },
+      {
+        path: "/createEquipment",
+        element: <EquipmentCreator />,
       },
       {
         path: "/update/:id",

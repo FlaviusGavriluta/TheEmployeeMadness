@@ -11,7 +11,7 @@ const Layout = () => (
         </li>
         <li>
           <Link to="/create">
-            <button type="button">Create Employee</button>
+            <button className="btn btn-light btn-sm">Create Employee</button>
           </Link>
         </li>
       </ul>

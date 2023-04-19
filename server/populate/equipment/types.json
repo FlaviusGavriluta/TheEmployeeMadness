@@ -1,8 +1,12 @@
 [
   "Computer",
+  "Computer",
+  "Printer/Scanner",
   "Printer/Scanner",
   "Audio/Visual",
+  "Audio/Visual",
   "Communications",
-  "Office Supplies",
-  "Other"
+  "Communications",
+  "Communications",
+  "Office Supplies"
 ]

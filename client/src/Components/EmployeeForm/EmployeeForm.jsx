@@ -9,12 +9,11 @@ const EmployeeForm = ({ onSave, disabled, employee, onCancel }) => {
       acc[k] = v;
       return acc;
     }, {});
-
     return onSave(employee);
   };
 
   return (
-    <form className="EmployeeForm" onSubmit={onSubmit}>
+    <form onSubmit={onSubmit}>
       {employee && (
         <input type="hidden" name="_id" defaultValue={employee._id} />
       )}
@@ -25,6 +24,7 @@ const EmployeeForm = ({ onSave, disabled, employee, onCancel }) => {
           defaultValue={employee ? employee.name : null}
           name="name"
           id="name"
+          className="form-control"
         />
       </div>
 
@@ -34,6 +34,7 @@ const EmployeeForm = ({ onSave, disabled, employee, onCancel }) => {
           defaultValue={employee ? employee.level : null}
           name="level"
           id="level"
+          className="form-control"
         />
       </div>
 
@@ -43,15 +44,15 @@ const EmployeeForm = ({ onSave, disabled, employee, onCancel }) => {
           defaultValue={employee ? employee.position : null}
           name="position"
           id="position"
+          className="form-control"
         />
       </div>
 
       <div className="buttons">
-        <button type="submit" disabled={disabled}>
+        <button className="btn btn-primary" type="submit" disabled={disabled}>
           {employee ? "Update Employee" : "Create Employee"}
         </button>
-
-        <button type="button" onClick={onCancel}>
+        <button className="btn btn-danger" type="button" onClick={onCancel}>
           Cancel
         </button>
       </div>

@@ -3,6 +3,8 @@ import { useState } from "react";
 import "./EmployeeTable.css";
 import { SearchBy } from "./SearchBy";
 import { SortBy } from "./SortBy";
+import { Edit } from "../Buttons/Edit";
+import { Delete } from "../Buttons/Delete";
 
 const EmployeeTable = ({ employees, onDelete }) => {
   const [search, setSearch] = useState("");
@@ -62,11 +64,9 @@ const EmployeeTable = ({ employees, onDelete }) => {
               <td>{employee.position}</td>
               <td>
                 <Link to={`/update/${employee._id}`}>
-                  <button type="button">Update</button>
+                  <Edit />
                 </Link>
-                <button type="button" onClick={() => onDelete(employee._id)}>
-                  Delete
-                </button>
+                <Delete onDelete={() => onDelete(employee._id)} />
               </td>
             </tr>
           ))}

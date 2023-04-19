@@ -1,31 +1,22 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./EmployeeTable.css";
+import { SearchBy } from "./SearchBy";
 
 const EmployeeTable = ({ employees, onDelete }) => {
   const [search, setSearch] = useState("");
 
-  const filteredEmployees = employees.filter(
-    (employee) =>
-      employee.level.toLowerCase().includes(search.toLowerCase()) ||
-      employee.position.toLowerCase().includes(search.toLowerCase())
-  );
-
-  const handleSearch = (e) => {
-    setSearch(e.target.value);
-  };
+  const filteredEmployees = employees
+    ? employees.filter((employee) =>
+        [employee.level, employee.position].some((field) =>
+          field.toLowerCase().includes(search.toLowerCase())
+        )
+      )
+    : [];
 
   return (
     <div className="EmployeeTable">
-      <div className="input-group">
-        <input
-          type="text"
-          className="form-control m-2"
-          placeholder="Search by level or position"
-          value={search}
-          onChange={handleSearch}
-        />
-      </div>
+      <SearchBy onSearch={(search) => setSearch(search)} />
       <table>
         <thead>
           <tr>

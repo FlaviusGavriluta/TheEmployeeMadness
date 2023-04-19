@@ -3,10 +3,11 @@ Loading the .env file and creates environment variables from it
 */
 require("dotenv").config();
 const mongoose = require("mongoose");
-const names = require("./names.json");
-const levels = require("./levels.json");
-const positions = require("./positions.json");
+const names = require("./employee/names.json");
+const levels = require("./employee/levels.json");
+const positions = require("./employee/positions.json");
 const EmployeeModel = require("../db/employee.model");
+const EquipmentModel = require("../db/equipment.model");
 
 const mongoUrl = process.env.MONGO_URL;
 

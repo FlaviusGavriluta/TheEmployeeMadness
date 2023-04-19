@@ -2,7 +2,8 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const EmployeeModel = require("./db/employee.model");
+const employeeRoutes = require("./routes/employeeRoutes");
+const equipmentRoutes = require("./routes/equipmentRoutes");
 
 const { MONGO_URL, PORT } = process.env;
 
@@ -24,55 +25,8 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.get("/api/employees/", async (req, res, next) => {
-  try {
-    const employees = await EmployeeModel.find().sort({ created: "desc" });
-    return res.json(employees);
-  } catch (err) {
-    return next(err);
-  }
-});
-
-app.get("/api/employees/:id", async (req, res, next) => {
-  try {
-    const employee = await EmployeeModel.findById(req.params.id);
-    return res.json(employee);
-  } catch (err) {
-    return next(err);
-  }
-});
-
-app.post("/api/employees/", async (req, res, next) => {
-  const employee = req.body;
-  try {
-    const saved = await EmployeeModel.create(employee);
-    return res.json(saved);
-  } catch (err) {
-    return next(err);
-  }
-});
-
-app.patch("/api/employees/:id", async (req, res, next) => {
-  try {
-    const employee = await EmployeeModel.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true }
-    );
-    return res.json(employee);
-  } catch (err) {
-    return next(err);
-  }
-});
-
-app.delete("/api/employees/:id", async (req, res, next) => {
-  try {
-    const deleted = await EmployeeModel.findByIdAndDelete(req.params.id);
-    return res.json(deleted);
-  } catch (err) {
-    return next(err);
-  }
-});
+app.use("/api/employees", employeeRoutes);
+app.use("/api/equipments", equipmentRoutes);
 
 const main = async () => {
   try {

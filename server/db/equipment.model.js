@@ -1,11 +1,11 @@
 const { Schema, model } = require("mongoose");
 
 module.exports = model(
-  "Employee",
+  "Equipment",
   new Schema({
     name: String,
-    level: String,
-    position: String,
+    type: String,
+    amount: Number,
     created: {
       type: Date,
       default: Date.now,

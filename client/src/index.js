@@ -5,12 +5,12 @@ import reportWebVitals from "./reportWebVitals";
 
 import Layout from "./Pages/Layout";
 import ErrorPage from "./Pages/ErrorPage";
-import EmployeeList from "./Pages/EmployeeList";
-import EmployeeCreator from "./Pages/EmployeeCreator";
-import EmployeeUpdater from "./Pages/EmployeeUpdater";
-import EquipmentList from "./Pages/EquipmentList";
-import EquipmentCreator from "./Pages/EquipmentCreator";
-import EquipmentUpdater from "./Pages/EquipmentUpdater";
+import EmployeeList from "./Pages/Employees/EmployeeList";
+import EmployeeCreator from "./Pages/Employees/EmployeeCreator";
+import EmployeeUpdater from "./Pages/Employees/EmployeeUpdater";
+import EquipmentList from "./Pages/Equipments/EquipmentList";
+import EquipmentCreator from "./Pages/Equipments/EquipmentCreator";
+import EquipmentUpdater from "./Pages/Equipments/EquipmentUpdater";
 
 import "./index.css";
 import TableTest from "./Pages/TableTest";

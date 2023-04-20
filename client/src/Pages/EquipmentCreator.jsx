@@ -21,13 +21,13 @@ const EquipmentCreator = () => {
 
     createEquipment(equipment).then(() => {
       setLoading(false);
-      navigate("/");
+      navigate("/equipmentsList");
     });
   };
 
   return (
     <EquipmentForm
-      onCancel={() => navigate("/")}
+      onCancel={() => navigate("/equipmentsList")}
       disabled={loading}
       onSave={handleCreateEquipment}
     />

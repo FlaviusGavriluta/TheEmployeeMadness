@@ -28,20 +28,18 @@ const EmployeeUpdater = () => {
 
   useEffect(() => {
     setEmployeeLoading(true);
-    fetchEmployee(id)
-      .then((employee) => {
-        setEmployee(employee);
-        setEmployeeLoading(false);
-      });
+    fetchEmployee(id).then((employee) => {
+      setEmployee(employee);
+      setEmployeeLoading(false);
+    });
   }, [id]);
 
   const handleUpdateEmployee = (employee) => {
     setUpdateLoading(true);
-    updateEmployee(employee)
-      .then(() => {
-        setUpdateLoading(false);
-        navigate("/");
-      });
+    updateEmployee(employee).then(() => {
+      setUpdateLoading(false);
+      navigate("/");
+    });
   };
 
   if (employeeLoading) {

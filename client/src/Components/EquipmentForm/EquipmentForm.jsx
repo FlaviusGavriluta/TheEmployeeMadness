@@ -1,4 +1,4 @@
-const EquipmentForm = ({ onSave, disabled, onCancel }) => {
+const EquipmentForm = ({ onSave, disabled, equipment, onCancel }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -15,10 +15,14 @@ const EquipmentForm = ({ onSave, disabled, onCancel }) => {
 
   return (
     <form onSubmit={onSubmit}>
+      {equipment && (
+        <input type="hidden" name="_id" defaultValue={equipment._id} />
+      )}
+
       <div className="control">
         <label htmlFor="name">Name:</label>
         <input
-          defaultValue={null}
+          defaultValue={equipment ? equipment.name : null}
           name="name"
           id="name"
           className="form-control"
@@ -28,7 +32,7 @@ const EquipmentForm = ({ onSave, disabled, onCancel }) => {
       <div className="control">
         <label htmlFor="type">Type:</label>
         <input
-          defaultValue={null}
+          defaultValue={equipment ? equipment.type : null}
           name="type"
           id="type"
           className="form-control"
@@ -38,7 +42,7 @@ const EquipmentForm = ({ onSave, disabled, onCancel }) => {
       <div className="control">
         <label htmlFor="amount">Amount:</label>
         <input
-          defaultValue={null}
+          defaultValue={equipment ? equipment.amount : null}
           name="amount"
           id="amount"
           className="form-control"
@@ -47,7 +51,7 @@ const EquipmentForm = ({ onSave, disabled, onCancel }) => {
 
       <div className="buttons">
         <button className="btn btn-primary" type="submit" disabled={disabled}>
-          Create Equipment
+          {equipment ? "Update Equipment" : "Create Equipment"}
         </button>
         <button className="btn btn-danger" type="button" onClick={onCancel}>
           Cancel

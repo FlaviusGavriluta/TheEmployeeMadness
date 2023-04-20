@@ -3,7 +3,6 @@ const EquipmentForm = ({ onSave, disabled, equipment, onCancel }) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const entries = [...formData.entries()];
-    console.log(entries);
 
     const equipment = entries.reduce((acc, entry) => {
       const [k, v] = entry;

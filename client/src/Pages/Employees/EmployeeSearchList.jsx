@@ -3,10 +3,6 @@ import Loading from "../../Components/Loading";
 import EmployeeTable from "../../Components/EmployeeTable";
 import { useParams } from "react-router-dom";
 
-const fetchEmployees = () => {
-  return fetch("/api/employees").then((res) => res.json());
-};
-
 const fetchEmployeesBySearch = (search) => {
   return fetch(`/api/employees/name/${search}`).then((res) => res.json());
 };
@@ -17,7 +13,7 @@ const deleteEmployee = (id) => {
   );
 };
 
-const EmployeeSearchList = () => {
+const EmployeeList = () => {
   const [loading, setLoading] = useState(true);
   const [employees, setEmployees] = useState(null);
   const { search } = useParams();
@@ -41,13 +37,6 @@ const EmployeeSearchList = () => {
       });
   }, [search]);
 
-  useEffect(() => {
-    fetchEmployees().then((employees) => {
-      setLoading(false);
-      setEmployees(employees);
-    });
-  }, []);
-
   if (loading) {
     return <Loading />;
   }
@@ -55,4 +44,4 @@ const EmployeeSearchList = () => {
   return <EmployeeTable employees={employees} onDelete={handleDelete} />;
 };
 
-export default EmployeeSearchList;
+export default EmployeeList;

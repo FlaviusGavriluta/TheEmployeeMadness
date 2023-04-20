@@ -5,6 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 
 import Layout from "./Pages/Layout";
 import ErrorPage from "./Pages/ErrorPage";
+import EmployeeSearchList from "./Pages/Employees/EmployeeSearchList";
 import EmployeeList from "./Pages/Employees/EmployeeList";
 import EmployeeCreator from "./Pages/Employees/EmployeeCreator";
 import EmployeeUpdater from "./Pages/Employees/EmployeeUpdater";
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <EmployeeList />,
+      },
+      {
+        path: "/name/:search",
+        element: <EmployeeSearchList />,
       },
       {
         path: "/create",

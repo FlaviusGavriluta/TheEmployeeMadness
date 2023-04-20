@@ -21,6 +21,18 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
+router.get("/name/:search", async (req, res, next) => {
+  try {
+    const searchValue=req.params.search;
+    const employees = await EmployeeModel.find({
+      name: { $regex: searchValue, $options: "i" },
+    });
+    return res.json(employees);
+  } catch (err) {
+    return next(err);
+  }
+});
+
 router.post("/", async (req, res, next) => {
   const employee = req.body;
   try {

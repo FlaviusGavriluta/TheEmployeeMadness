@@ -25,11 +25,10 @@ const EquipmentList = () => {
   };
 
   useEffect(() => {
-    fetchEquipments()
-      .then((equipments) => {
-        setLoading(false);
-        setEquipments(equipments);
-      })
+    fetchEquipments().then((equipments) => {
+      setLoading(false);
+      setEquipments(equipments);
+    });
   }, []);
 
   if (loading) {

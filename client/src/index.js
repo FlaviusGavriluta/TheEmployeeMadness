@@ -62,7 +62,7 @@ const router = createBrowserRouter([
         element: <TableTest />,
       },
       {
-        path: "/form-test",
+        path: "/about",
         element: <FormTest />,
       },
     ],

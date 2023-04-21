@@ -68,6 +68,13 @@ const Layout = () => (
               </button>
             </Link>
           </li>
+          <li>
+            <Link to={"/about"} style={{ textDecoration: "none" }}>
+              <button className="btn">
+                <span className="las la-address-card"></span> <span>About</span>
+              </button>
+            </Link>
+          </li>
         </ul>
       </div>
     </div>
@@ -101,10 +108,13 @@ const Layout = () => (
         </div>
 
         <div className="user-wrapper">
-          <img src="user.jpg" width={"40px"} height={"40px"} alt="user" />
+          <Link to={"/about"}>
+            <img src="user.jpg" width={"40px"} height={"40px"} alt="user" />
+          </Link>
+
           <div>
-            <h5 className="m-0" style={{ fontSize: "1rem" }}>
-              <b>Flavius Gav.</b>
+            <h5 className="m-0 fw-bold " style={{ fontSize: "1rem" }}>
+              Flavius Gav.
             </h5>
             <small>Software developer</small>
           </div>

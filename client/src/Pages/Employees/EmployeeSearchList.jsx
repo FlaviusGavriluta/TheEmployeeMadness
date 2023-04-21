@@ -13,7 +13,7 @@ const deleteEmployee = (id) => {
   );
 };
 
-const EmployeeList = () => {
+const EmployeeSearchList = () => {
   const [loading, setLoading] = useState(true);
   const [employees, setEmployees] = useState(null);
   const { search } = useParams();
@@ -44,4 +44,4 @@ const EmployeeList = () => {
   return <EmployeeTable employees={employees} onDelete={handleDelete} />;
 };
 
-export default EmployeeList;
+export default EmployeeSearchList;

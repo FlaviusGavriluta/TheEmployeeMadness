@@ -35,16 +35,19 @@ const Layout = () => (
             </a>
           </li>
           <li>
+            
             <a className="">
               <span className="las la-users"></span> <span>Employees</span>
             </a>
           </li>
           <li>
+            
             <a className="">
               <span className="las la-tools"></span> <span>Equipments</span>
             </a>
           </li>
           <li>
+            
             <a className="">
               <span className="las la-concierge-bell"></span>
               <span>Attendance</span>
@@ -74,12 +77,12 @@ const Layout = () => (
           <input type="search" placeholder="Search here" />
         </div>
         <div className="user-wrapper">
-          <img src="user.png" width={"40px"} height={"40px"} />
+          <img src="user.jpg" width={"40px"} height={"40px"} alt="user" />
           <div>
             <h5 style={{ fontSize: "1rem" }}>
               <b>Flavius Dev</b>
             </h5>
-            <small>Super admin</small>
+            <small>Software developer</small>
           </div>
         </div>
       </header>

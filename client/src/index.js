@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 
-import Layout from "./Pages/Layout";
+import Layout from "./Pages/Layout/Layout";
 import ErrorPage from "./Pages/ErrorPage";
 import EmployeeSearchList from "./Pages/Employees/EmployeeSearchList";
 import EmployeeList from "./Pages/Employees/EmployeeList";
@@ -12,6 +12,7 @@ import EmployeeUpdater from "./Pages/Employees/EmployeeUpdater";
 import EquipmentList from "./Pages/Equipments/EquipmentList";
 import EquipmentCreator from "./Pages/Equipments/EquipmentCreator";
 import EquipmentUpdater from "./Pages/Equipments/EquipmentUpdater";
+import Dashboard from "./Pages/Dashboard";
 
 import "./index.css";
 import TableTest from "./Pages/TableTest";
@@ -25,8 +26,9 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <EmployeeList />,
+        element: <Dashboard />,
       },
+      { path: "/employees", element: <EmployeeList /> },
       {
         path: "/employees/:search",
         element: <EmployeeSearchList />,

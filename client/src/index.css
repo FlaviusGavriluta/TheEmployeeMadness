@@ -1,12 +1,17 @@
-.main-content {
-  margin-left: 250px;
+:root {
+  --main-color: #0b1218;
+  --color-dark: #1d2231;
+  --text-grey: #8390a2;
 }
 
 main {
-  margin-top: 85px;
+  margin-top: 80px;
   padding: 2rem 1.5rem;
-  background: #f1f5f9;
   min-height: calc(100vh - 90px);
+}
+
+.main-content {
+  margin-left: 250px;
 }
 
 .cards {
@@ -21,113 +26,40 @@ main {
   justify-content: space-between;
   background: #fff;
   padding: 2rem;
-  border-radius: 2px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.card-single span:first-child{
-color: var(--text-grey);
+.card-single div:last-child span {
+  font-size: 3rem;
+  color: var(--main-color);
+  color: rgb(10, 120, 122);
 }
 
-/* * {
-  box-sizing: border-box;
+.card-single div:first-child span {
+  color: var(--text-grey);
 }
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(255, 255, 255);
+.card-single:last-child {
+  background: var(--main-color);
 }
 
-button {
-  padding: 0.2rem 1rem;
-  margin: 0.1rem;
-  font-weight: bold;
-  color: black;
-  text-transform: uppercase;
-  outline: rgb(99, 151, 254);
-  border-radius: 4px;
-  cursor: pointer;
-  background-color: white;
+.recent-grid{
+  display: grid;
+  grid-template-columns: 60% auto;
 }
 
-button:hover {
-  border-color: rgb(99, 151, 254);
+.recent-grid .card {
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.EmployeeTable {
-  padding: 0.5rem;
+.recent-grid .card-header {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 table {
-  width: 100%;
-  text-align: left;
   border-collapse: collapse;
-}
-
-table tbody tr {
-  background-color: rgb(198, 218, 255);
-}
-
-table tbody tr:nth-child(even) {
-  background-color: rgb(219, 230, 255);
-}
-
-table td,
-table th {
-  padding: 0.2rem;
-}
-
-table button {
-  padding: 0.2rem 1rem;
-  margin: 0.1rem;
-}
-
-form {
-  display: grid;
-  font-size: 1.2rem;
-}
-
-.control {
   width: 100%;
-  padding: 1rem;
-  display: grid;
-  gap: 0.2rem;
 }
-
-.buttons {
-  font-size: 1.2rem;
-  padding: 1rem;
-}
-
-.control input,
-.control select {
-  font-size: 1.2rem;
-  padding: 0.2rem;
-}
-
-.control .checkbox,
-.control .radio {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  padding: 0.2rem;
-  cursor: pointer;
-}
-
-button {
-  padding: 0.7rem 1.7rem;
-  margin-right: 1rem;
-}
-
-.grow {
-  flex: 1;
-} */

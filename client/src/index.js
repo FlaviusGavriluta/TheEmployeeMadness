@@ -38,7 +38,7 @@ const router = createBrowserRouter([
         element: <EmployeeCreator />,
       },
       {
-        path: "/equipmentsList",
+        path: "/equipments",
         element: <EquipmentList />,
       },
       {
@@ -54,7 +54,11 @@ const router = createBrowserRouter([
         element: <EquipmentUpdater />,
       },
       {
-        path: "/table-test",
+        path: "/missing",
+        element: <FormTest />,
+      },
+      {
+        path: "/tasks",
         element: <TableTest />,
       },
       {

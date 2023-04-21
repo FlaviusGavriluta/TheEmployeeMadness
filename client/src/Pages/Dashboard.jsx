@@ -21,6 +21,16 @@ const Dashboard = () => (
         </div>
       </div>
 
+      <div className="card-single">
+        <div>
+          <h2 className="fw-bold">1K</h2>
+          <span>Views</span>
+        </div>
+        <div>
+          <span className="lab la-yelp"></span>
+        </div>
+      </div>
+
       <div className="card-single text-light d-inline-block p-3 text-center">
         <div>
           <span className="text-light">Experience</span>
@@ -36,18 +46,20 @@ const Dashboard = () => (
     <div className="recent-grid mt-5">
       <div className="favoriteBrands me-3">
         <div className="card border-0">
-          <div className="card-header bg-transparent border-0">
-            <h6 className="fw-bold">Favorite Brands</h6>
+          <div className="card-header bg-transparent">
+            <h6 className="fw-bold my-1">Favorite Brands</h6>
           </div>
-          <div className="card-body"><h6>BlaBla BLiBLi</h6></div>
+          <div className="card-body my-1">
+            <h6>BlaBla BLiBLi</h6>
+          </div>
         </div>
       </div>
       <div className="tasks">
         <div className="card border-0">
-          <div className="card-header bg-transparent border-0">
-            <h6 className="fw-bold">Recent Tasks</h6>
+          <div className="card-header bg-transparent">
+            <h6 className="fw-bold my-1">Recent Tasks</h6>
           </div>
-          <div className="card-body">
+          <div className="card-body my-1">
             <table>
               <thead>
                 <tr>
@@ -59,37 +71,37 @@ const Dashboard = () => (
                 <tr>
                   <td>Filter features</td>
                   <td>
-                    <span className="status"></span> review
+                    <span className="status purple"></span> review
                   </td>
                 </tr>
                 <tr>
                   <td>Arrangement features</td>
                   <td>
-                    <span className="status"></span> review
+                    <span className="status purple"></span> review
                   </td>
                 </tr>
                 <tr>
                   <td>Add Equipment</td>
                   <td>
-                    <span className="status"></span> review
+                    <span className="status purple"></span> review
                   </td>
                 </tr>
                 <tr>
                   <td>The Search</td>
                   <td>
-                    <span className="status"></span> review
+                    <span className="status purple"></span> review
                   </td>
                 </tr>
                 <tr>
                   <td>Employee Attendance</td>
                   <td>
-                    <span className="status"></span> in progress
+                    <span className="status info"></span> in progress
                   </td>
                 </tr>
                 <tr>
                   <td>Assign equipment to any employee</td>
                   <td>
-                    <span className="status"></span> pending
+                    <span className="status orange"></span> pending
                   </td>
                 </tr>
               </tbody>

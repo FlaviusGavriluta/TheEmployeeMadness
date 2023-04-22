@@ -21,13 +21,13 @@ const EmployeeCreator = () => {
 
     createEmployee(employee).then(() => {
       setLoading(false);
-      navigate("/");
+      navigate("/employees");
     });
   };
 
   return (
     <EmployeeForm
-      onCancel={() => navigate("/")}
+      onCancel={() => navigate("/employees")}
       disabled={loading}
       onSave={handleCreateEmployee}
     />

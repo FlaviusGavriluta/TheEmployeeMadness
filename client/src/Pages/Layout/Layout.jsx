@@ -19,7 +19,7 @@ const Layout = () => (
             className="logo ms-3 mb-3"
           />
           <div
-            className="logo text-container d-inline-block ms-3"
+            className="logoText text-container d-inline-block ms-3"
             style={{ fontFamily: "sans-serif" }}
           >
             <p className="mb-0 p-0 fw-bold" style={{ fontSize: "16px" }}>
@@ -34,6 +34,7 @@ const Layout = () => (
           </div>
         </div>
       </div>
+
       <div className="sidebar-menu" style={{ marginTop: "1rem" }}>
         <ul>
           <li className="onActive">
@@ -85,9 +86,9 @@ const Layout = () => (
     <div className="main-content">
       <header>
         <h3 className="fw-bold" style={{ color: "#222" }}>
-          <label className="dashboardIcon" htmlFor="nav-toggle">
+          <label htmlFor="nav-toggle">
             <span
-              className="btn m-0 px-3 las la-bars"
+              className="dashboardIcon btn las la-bars"
               style={{ fontSize: "1.7rem", color: "#222" }}
             ></span>
           </label>

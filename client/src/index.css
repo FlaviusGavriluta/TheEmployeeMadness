@@ -10,6 +10,8 @@ main {
   min-height: calc(100vh - 90px);
 }
 
+
+
 .cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -127,7 +129,7 @@ tr td:last-child {
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 560px) {
   .cards {
     grid-template-columns: 100%;
   }

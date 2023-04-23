@@ -12,6 +12,15 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.get("/employees-count", async (req, res, next) => {
+  try {
+    const count = await EmployeeModel.countDocuments({});
+    return res.json({ count });
+  } catch (err) {
+    return next(err);
+  }
+});
+
 router.get("/:id", async (req, res, next) => {
   try {
     const employee = await EmployeeModel.findById(req.params.id);
@@ -23,7 +32,7 @@ router.get("/:id", async (req, res, next) => {
 
 router.get("/name/:search", async (req, res, next) => {
   try {
-    const searchValue=req.params.search;
+    const searchValue = req.params.search;
     const employees = await EmployeeModel.find({
       name: { $regex: searchValue, $options: "i" },
     });

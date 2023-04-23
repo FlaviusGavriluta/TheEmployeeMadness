@@ -34,7 +34,11 @@ router.get("/name/:search", async (req, res, next) => {
   try {
     const searchValue = req.params.search;
     const employees = await EmployeeModel.find({
-      name: { $regex: searchValue, $options: "i" },
+      $or: [
+        { name: { $regex: searchValue, $options: "i" } },
+        { level: { $regex: searchValue, $options: "i" } },
+        { position: { $regex: searchValue, $options: "i" } },
+      ],
     });
     return res.json(employees);
   } catch (err) {

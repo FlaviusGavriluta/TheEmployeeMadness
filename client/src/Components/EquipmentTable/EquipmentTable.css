@@ -48,12 +48,4 @@
 .table tbody tr td:nth-last-child(1) {
 	border-radius: 0 5px 5px 0;}
 
-.active-circle {
-	height: 10px;
-	width: 10px;
-	border-radius: 10px;
-	margin-right: 5px;
-	display: inline-block;
-}
-
 

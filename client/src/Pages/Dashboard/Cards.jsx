@@ -45,7 +45,13 @@ const Cards = () => {
 
       <div className="card-single">
         <div>
-          <h2 className="fw-bold">{viewsCount}</h2>
+          <h2 className="fw-bold">
+            {viewsCount >= 1000
+              ? (viewsCount / 1000).toFixed(1).endsWith(".0")
+                ? (viewsCount / 1000).toFixed(0) + " K"
+                : (viewsCount / 1000).toFixed(1) + " K"
+              : viewsCount}
+          </h2>
           <span>Views</span>
         </div>
         <div>

@@ -1,9 +1,9 @@
 const { Schema, model } = require("mongoose");
 
 module.exports = model(
-  "Views",
+  "View",
   new Schema({
-    ipAddress: {type: String},
+    page: String,
     created: {
       type: Date,
       default: Date.now,

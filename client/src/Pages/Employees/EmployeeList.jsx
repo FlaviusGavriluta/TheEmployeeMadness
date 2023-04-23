@@ -12,6 +12,24 @@ const deleteEmployee = (id) => {
   );
 };
 
+const postData = {
+  page: "/api/employees",
+};
+
+(async () => {
+  try {
+    await fetch("/api/views", {
+      method: "POST",
+      body: JSON.stringify(postData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  } catch (err) {
+    console.error("Error making post request to views collection:", err);
+  }
+})();
+
 const EmployeeList = () => {
   const [loading, setLoading] = useState(true);
   const [employees, setEmployees] = useState(null);

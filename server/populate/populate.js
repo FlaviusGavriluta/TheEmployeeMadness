@@ -3,14 +3,18 @@ Loading the .env file and creates environment variables from it
 */
 require("dotenv").config();
 const mongoose = require("mongoose");
+
+const EmployeeModel = require("../db/employee.model");
+const EquipmentModel = require("../db/equipment.model");
+const ViewsModel = require("../db/view.model");
+
 const employeesName = require("./employee/names.json");
 const employeesLevel = require("./employee/levels.json");
 const employeesPosition = require("./employee/positions.json");
 const equipmentsName = require("./equipment/names.json");
 const equipmentTypes = require("./equipment/types.json");
 const amounts = require("./equipment/amounts.json");
-const EmployeeModel = require("../db/employee.model");
-const EquipmentModel = require("../db/equipment.model");
+const ipAddresses = require("./ipAddresses.json");
 
 const mongoUrl = process.env.MONGO_URL;
 
@@ -47,11 +51,23 @@ const populateEquipment = async () => {
   console.log("Equipment created");
 };
 
+const populateViews = async () => {
+  await ViewsModel.deleteMany({});
+
+  const views = ipAddresses.map((ipAddress, i) => ({
+    ipAddress,
+  }));
+
+  await ViewsModel.create(...views);
+  console.log("Views created");
+};
+
 const main = async () => {
   await mongoose.connect(mongoUrl);
 
   await populateEmployees();
   await populateEquipment();
+  await populateViews();
 
   await mongoose.disconnect();
 };

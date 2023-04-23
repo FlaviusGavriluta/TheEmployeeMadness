@@ -49,7 +49,7 @@ const EmployeeTable = ({ employees, onDelete }) => {
 
   return (
     <div className="EmployeeTable">
-      <SearchBy onSearch={(search) => setSearch(search)} />
+      {/* <SearchBy onSearch={(search) => setSearch(search)} /> */}
       <table>
         <SortBy
           setSortBy={setSortBy}

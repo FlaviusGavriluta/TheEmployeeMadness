@@ -16,7 +16,7 @@ const RecentGrids = () => (
           <h6 className="fw-bold my-1">Recent Tasks</h6>
         </div>
         <div className="card-body my-1">
-          <div className="table-responsive">
+          <div className="recentTasks">
             <table>
               <thead>
                 <tr>

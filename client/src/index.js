@@ -12,7 +12,7 @@ import EmployeeUpdater from "./Pages/Employees/EmployeeUpdater";
 import EquipmentList from "./Pages/Equipments/EquipmentList";
 import EquipmentCreator from "./Pages/Equipments/EquipmentCreator";
 import EquipmentUpdater from "./Pages/Equipments/EquipmentUpdater";
-import Dashboard from "./Pages/Dashboard";
+import Dashboard from "./Pages/Dashboard/Dashboard";
 
 import "./index.css";
 import TableTest from "./Pages/TableTest";

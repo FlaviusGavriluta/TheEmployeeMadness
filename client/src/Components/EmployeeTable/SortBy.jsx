@@ -14,7 +14,7 @@ export const SortBy = ({ setSortBy, sortOrder, setSortOrder }) => {
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              <button className="btn m-0 p-0">Name</button>
+              <button className="btn m-0 ps-2 fw-bold">Name</button>
             </a>
             <ul className="dropdown-menu">
               <li>
@@ -58,7 +58,7 @@ export const SortBy = ({ setSortBy, sortOrder, setSortOrder }) => {
         </th>
         <th>
           <button
-            className="btn m-0 p-0"
+            className="btn m-0 p-0 fw-bold"
             onClick={() => {
               setSortBy("level");
               toggleSortOrder();
@@ -69,7 +69,7 @@ export const SortBy = ({ setSortBy, sortOrder, setSortOrder }) => {
         </th>
         <th>
           <button
-            className="btn m-0 p-0"
+            className="btn m-0 p-0 fw-bold"
             onClick={() => {
               setSortBy("position");
               toggleSortOrder();
@@ -78,7 +78,7 @@ export const SortBy = ({ setSortBy, sortOrder, setSortOrder }) => {
             Position
           </button>
         </th>
-        <th />
+        <th>Actions</th>
       </tr>
     </thead>
   );

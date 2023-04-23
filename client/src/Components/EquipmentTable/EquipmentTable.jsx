@@ -9,25 +9,39 @@ const EquipmentTable = ({ equipments, onDelete }) => (
       <table className="table">
         <thead>
           <tr>
-            <th>Name</th>
+            <th className="ps-3">Name</th>
             <th>Type</th>
             <th>Amount</th>
             <th>Actions</th>
-            <th />
           </tr>
         </thead>
         <tbody>
           {equipments.map((equipment) => (
             <tr key={equipment._id}>
-              <td>{equipment.name}</td>
+              <td className="ps-3">{equipment.name}</td>
               <td>{equipment.type}</td>
               <td>{equipment.amount}</td>
               <td>
-                <i className="btn fa fa-ellipsis-v" aria-hidden="true"></i>
-                <Link to={`/updateEquipment/${equipment._id}`}>
-                  <Edit />
-                </Link>
-                <Delete onDelete={() => onDelete(equipment._id)} />
+                <div class="dropdown">
+                  <button
+                    class="btn"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <i className="fa fa-ellipsis-v" aria-hidden="true"></i>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <Link to={`/updateEquipment/${equipment._id}`}>
+                        <Edit />
+                      </Link>
+                    </li>
+                    <li className="text-danger">
+                      <Delete onDelete={() => onDelete(equipment._id)} />
+                    </li>
+                  </ul>
+                </div>
               </td>
             </tr>
           ))}

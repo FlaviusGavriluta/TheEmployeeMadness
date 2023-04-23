@@ -48,31 +48,49 @@ const EmployeeTable = ({ employees, onDelete }) => {
     : [];
 
   return (
-    <div className="EmployeeTable">
-      {/* <SearchBy onSearch={(search) => setSearch(search)} /> */}
-      <table>
-        <SortBy
-          setSortBy={setSortBy}
-          sortOrder={sortOrder}
-          setSortOrder={setSortOrder}
-        />
-        <tbody>
-          {filteredEmployees.map((employee) => (
-            <tr key={employee._id}>
-              <td>{employee.name}</td>
-              <td>{employee.level}</td>
-              <td>{employee.position}</td>
-              <td>
-                <Link to={`/update/${employee._id}`}>
-                  <Edit />
-                </Link>
-                <Delete onDelete={() => onDelete(employee._id)} />
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <section className="EmployeeTable">
+      <div className="container">
+        {/* <SearchBy onSearch={(search) => setSearch(search)} /> */}
+        <table className="table">
+          <SortBy
+            setSortBy={setSortBy}
+            sortOrder={sortOrder}
+            setSortOrder={setSortOrder}
+          />
+          <tbody>
+            {filteredEmployees.map((employee) => (
+              <tr key={employee._id}>
+                <td className="ps-3">{employee.name}</td>
+                <td>{employee.level}</td>
+                <td>{employee.position}</td>
+                <td>
+                  <div class="dropdown">
+                    <button
+                      class="btn"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <i className="fa fa-ellipsis-v" aria-hidden="true"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <Link to={`/update/${employee._id}`}>
+                          <Edit />
+                        </Link>
+                      </li>
+                      <li className="text-danger">
+                        <Delete onDelete={() => onDelete(employee._id)} />
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
   );
 };
 

@@ -11,17 +11,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   min-height: 70vh;
   flex-direction: column;
   gap: 300px;
-  /* background: #1d2b3a; */
-  background: #0b1218;
+  /* background-color: rgba(11, 18, 24, 1); */
   border-radius: 15px;
-  margin-top: 2rem;
   padding: 0;
-  margin-bottom: 2rem;
-  margin-left: 3rem;
-  margin-right: 3rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .inputBox {
@@ -75,4 +73,9 @@
 .inputBox input:valid,
 .inputBox input:focus {
   border: 1px solid #00dfc4;
+}
+
+.textForm {
+  color:#0b1218;
+  margin-bottom: 5rem;
 }

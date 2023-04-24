@@ -1,4 +1,4 @@
-export const SortBy = ({ setSortBy, sortOrder, setSortOrder }) => {
+export const HeaderTable = ({ setSortBy, sortOrder, setSortOrder }) => {
   const toggleSortOrder = () => {
     setSortOrder(sortOrder === "asc" ? "desc" : "asc");
   };
@@ -79,7 +79,28 @@ export const SortBy = ({ setSortBy, sortOrder, setSortOrder }) => {
             Position
           </button>
         </th>
-        <th>Equipment</th>
+        <th>
+          <button
+            className="btn m-0 p-0 fw-bold"
+            onClick={() => {
+              setSortBy("equipment");
+              toggleSortOrder();
+            }}
+          >
+            Equipment
+          </button>
+        </th>
+        <th>
+          <button
+            className="btn m-0 p-0 fw-bold"
+            onClick={() => {
+              setSortBy("brand");
+              toggleSortOrder();
+            }}
+          >
+            Brand
+          </button>
+        </th>
         <th>Actions</th>
       </tr>
     </thead>

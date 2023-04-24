@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./EmployeeTable.css";
-import { SortBy } from "./SortBy";
+import { HeaderTable } from "./HeaderTable";
 import { Edit } from "../Buttons/Edit";
 import { Delete } from "../Buttons/Delete";
 import { Add } from "../Buttons/Add";
@@ -11,6 +11,7 @@ const EmployeeTable = ({
   onDelete,
   handleAttendance,
   equipments,
+  brands,
 }) => {
   const [sortBy, setSortBy] = useState("firstName");
   const [sortOrder, setSortOrder] = useState("asc");
@@ -28,7 +29,9 @@ const EmployeeTable = ({
         let comparison = 0;
         switch (sortBy) {
           case "level":
-          case "position": {
+          case "position":
+          case "equipment":
+          case "brand": {
             const valueA = a[sortBy].toLowerCase();
             const valueB = b[sortBy].toLowerCase();
             comparison = valueA.localeCompare(valueB);
@@ -54,7 +57,7 @@ const EmployeeTable = ({
           </Link>
         </div>
         <table className="table">
-          <SortBy
+          <HeaderTable
             setSortBy={setSortBy}
             sortOrder={sortOrder}
             setSortOrder={setSortOrder}
@@ -75,13 +78,18 @@ const EmployeeTable = ({
                 <td>{employee.level}</td>
                 <td>{employee.position}</td>
                 <td>
-                  {
-                    equipments && equipments.find(
-                      (equipment) => equipment._id === employee.equipment
-                    ) ? equipments && equipments.find(
-                      (equipment) => equipment._id === employee.equipment
-                    ).name : ''
-                  }
+                  {equipments && equipments.find(
+                    (equipment) => equipment._id === employee.equipment
+                  )
+                    ? equipments && equipments.find(
+                        (equipment) => equipment._id === employee.equipment
+                      ).name
+                    : ""}
+                </td>
+                <td>
+                  {brands && brands.find((brand) => brand._id === employee.brand)
+                    ? brands && brands.find((brand) => brand._id === employee.brand).name
+                    : ""}
                 </td>
                 <td>
                   <div className="dropdown">

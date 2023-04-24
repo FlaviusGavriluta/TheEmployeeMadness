@@ -1,3 +1,5 @@
+import "./EquipmentForm.css"
+
 const EquipmentForm = ({ onSave, disabled, equipment, onCancel }) => {
   const onSubmit = (e) => {
     e.preventDefault();

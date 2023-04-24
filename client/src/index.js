@@ -13,6 +13,7 @@ import EquipmentList from "./Pages/Equipments/EquipmentList";
 import EquipmentCreator from "./Pages/Equipments/EquipmentCreator";
 import EquipmentUpdater from "./Pages/Equipments/EquipmentUpdater";
 import Dashboard from "./Pages/Dashboard/Dashboard";
+import MissingEmployees from "./Pages/MissingEmployees";
 
 import "./index.css";
 import TableTest from "./Pages/TableTest";
@@ -55,7 +56,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/missing",
-        element: <FormTest />,
+        element: <MissingEmployees />,
       },
       {
         path: "/tasks",

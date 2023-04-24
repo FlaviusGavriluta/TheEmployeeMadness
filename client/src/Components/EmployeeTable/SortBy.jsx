@@ -56,6 +56,7 @@ export const SortBy = ({ setSortBy, sortOrder, setSortOrder }) => {
             </ul>
           </div>
         </th>
+        <th>Present</th>
         <th>
           <button
             className="btn m-0 p-0 fw-bold"

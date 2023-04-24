@@ -6,7 +6,7 @@ import { Edit } from "../Buttons/Edit";
 import { Delete } from "../Buttons/Delete";
 import { Add } from "../Buttons/Add";
 
-const EmployeeTable = ({ employees, onDelete }) => {
+const EmployeeTable = ({ employees, onDelete, handleAttendance }) => {
   const [sortBy, setSortBy] = useState("firstName");
   const [sortOrder, setSortOrder] = useState("asc");
 
@@ -58,6 +58,15 @@ const EmployeeTable = ({ employees, onDelete }) => {
             {sortedEmployees.map((employee) => (
               <tr key={employee._id}>
                 <td className="ps-3">{employee.name}</td>
+                <td className="status">
+                  <input
+                    type="checkbox"
+                    defaultChecked={employee.present}
+                    name="present"
+                    id={`present_${employee._id}`}
+                    onClick={() => handleAttendance(employee)}
+                  />
+                </td>
                 <td>{employee.level}</td>
                 <td>{employee.position}</td>
                 <td>

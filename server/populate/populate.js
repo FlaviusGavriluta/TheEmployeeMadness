@@ -9,6 +9,7 @@ const EquipmentModel = require("../db/equipment.model");
 const ViewModel = require("../db/view.model");
 
 const employeesName = require("./employee/names.json");
+const employeesStatus = require("./employee/status.json");
 const employeesLevel = require("./employee/levels.json");
 const employeesPosition = require("./employee/positions.json");
 const equipmentsName = require("./equipment/names.json");
@@ -30,6 +31,7 @@ const populateEmployees = async () => {
 
   const employees = employeesName.map((name) => ({
     name,
+    present: false,
     level: pick(employeesLevel),
     position: pick(employeesPosition),
   }));

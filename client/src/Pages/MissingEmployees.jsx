@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import Loading from "../../Components/Loading";
-import EmployeeTable from "../../Components/EmployeeTable";
+import Loading from "../Components/Loading";
+import EmployeeTable from "../Components/EmployeeTable/EmployeeTable";
 
-const fetchEmployees = () => {
-  return fetch("/api/employees").then((res) => res.json());
+const fetchEmployees = async () => {
+  const response = await fetch("/api/employees/api/missing");
+  return response.json();
 };
 
 const deleteEmployee = (id) => {
@@ -12,14 +13,16 @@ const deleteEmployee = (id) => {
   );
 };
 
-const updateEmployee = (employee) => {
-  return fetch(`/api/employees/${employee._id}`, {
+const updateEmployee = async (employee) => {
+  const response = await fetch(`/api/employees/${employee._id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(employee),
-  }).then((res) => res.json());
+  });
+  const data = await response.json();
+  return data;
 };
 
 const postData = {
@@ -40,15 +43,16 @@ const postData = {
   }
 })();
 
-const EmployeeList = () => {
+const MissingEmployees = () => {
   const [loading, setLoading] = useState(true);
   const [employees, setEmployees] = useState(null);
+  const [isMissing, setIsMissing] = useState(false);
 
   const handleAttendance = (employee) => {
     employee.present = !employee.present
-  
+    setIsMissing(!isMissing)
     updateEmployee(employee)
-  }
+}
 
   const handleDelete = (id) => {
     deleteEmployee(id);
@@ -63,13 +67,19 @@ const EmployeeList = () => {
       setLoading(false);
       setEmployees(employees);
     });
-  }, []);
+  }, [isMissing]);
 
   if (loading) {
     return <Loading />;
   }
 
-  return <EmployeeTable employees={employees} onDelete={handleDelete} handleAttendance={handleAttendance}/>;
+  return (
+    <EmployeeTable
+      employees={employees}
+      onDelete={handleDelete}
+      handleAttendance={handleAttendance}
+    />
+  );
 };
 
-export default EmployeeList;
+export default MissingEmployees;

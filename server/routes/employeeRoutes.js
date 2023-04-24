@@ -46,6 +46,15 @@ router.get("/name/:search", async (req, res, next) => {
   }
 });
 
+router.get("/api/missing", async (req, res, next) => {
+  try {
+    const missing = await EmployeeModel.find({present: "false"});
+    return res.json(missing);
+  } catch (err) {
+    return next(err);
+  }
+});
+
 router.post("/", async (req, res, next) => {
   const employee = req.body;
   try {
@@ -57,6 +66,19 @@ router.post("/", async (req, res, next) => {
 });
 
 router.patch("/:id", async (req, res, next) => {
+  try {
+    const employee = await EmployeeModel.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+    return res.json(employee);
+  } catch (err) {
+    return next(err);
+  }
+});
+
+router.patch("/:id/status", async (req, res, next) => {
   try {
     const employee = await EmployeeModel.findByIdAndUpdate(
       req.params.id,

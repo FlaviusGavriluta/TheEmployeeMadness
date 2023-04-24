@@ -81,11 +81,11 @@ export const Sidebar = () => {
             <Link
               to={"/missing"}
               style={{ textDecoration: "none" }}
-              onClick={() => handleButtonClick("Attendance")}
+              onClick={() => handleButtonClick("Missing")}
             >
               <button className="btn" onClick={hideSidebar}>
                 <span className="las la-concierge-bell"></span>
-                <span>Attendance</span>
+                <span>Missing</span>
               </button>
             </Link>
           </li>

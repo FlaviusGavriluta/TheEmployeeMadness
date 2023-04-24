@@ -94,6 +94,13 @@ tr td:last-child {
   align-items: center;
 }
 
+.status.green {
+  background: green;
+}
+.status.red {
+  background: red;
+}
+
 .status.purple {
   background: rebeccapurple;
 }
@@ -128,6 +135,10 @@ tr td:last-child {
 
   .recent-grid {
     grid-template-columns: 100%;
+  }
+
+  .statusText{
+    display: none;
   }
 }
 

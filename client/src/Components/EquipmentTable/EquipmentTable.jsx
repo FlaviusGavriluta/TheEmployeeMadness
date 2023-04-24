@@ -22,16 +22,16 @@ const EquipmentTable = ({ equipments, onDelete }) => (
               <td>{equipment.type}</td>
               <td>{equipment.amount}</td>
               <td>
-                <div class="dropdown">
+                <div className="dropdown">
                   <button
-                    class="btn"
+                    className="btn"
                     type="button"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
                     <i className="fa fa-ellipsis-v" aria-hidden="true"></i>
                   </button>
-                  <ul class="dropdown-menu">
+                  <ul className="dropdown-menu">
                     <li>
                       <Link to={`/updateEquipment/${equipment._id}`}>
                         <Edit />

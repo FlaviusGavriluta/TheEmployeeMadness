@@ -8,6 +8,10 @@ export const Sidebar = () => {
     setActiveButton(buttonName);
   };
 
+  const hideSidebar = () => {
+    document.getElementById("nav-toggle").checked = false;
+  };
+
   return (
     <div className="sidebar">
       <div
@@ -46,7 +50,7 @@ export const Sidebar = () => {
               style={{ textDecoration: "none" }}
               onClick={() => handleButtonClick("Dashboard")}
             >
-              <button className="btn">
+              <button className="btn" onClick={hideSidebar}>
                 <span className="las la-home"></span> <span>Dashboard</span>
               </button>
             </Link>
@@ -57,7 +61,7 @@ export const Sidebar = () => {
               style={{ textDecoration: "none" }}
               onClick={() => handleButtonClick("Employees")}
             >
-              <button className="btn">
+              <button className="btn" onClick={hideSidebar}>
                 <span className="las la-users"></span> <span>Employees</span>
               </button>
             </Link>
@@ -68,7 +72,7 @@ export const Sidebar = () => {
               style={{ textDecoration: "none" }}
               onClick={() => handleButtonClick("Equipments")}
             >
-              <button className="btn">
+              <button className="btn" onClick={hideSidebar}>
                 <span className="las la-tools"></span> <span>Equipments</span>
               </button>
             </Link>
@@ -79,7 +83,7 @@ export const Sidebar = () => {
               style={{ textDecoration: "none" }}
               onClick={() => handleButtonClick("Attendance")}
             >
-              <button className="btn">
+              <button className="btn" onClick={hideSidebar}>
                 <span className="las la-concierge-bell"></span>
                 <span>Attendance</span>
               </button>
@@ -91,7 +95,7 @@ export const Sidebar = () => {
               style={{ textDecoration: "none" }}
               onClick={() => handleButtonClick("Tasks")}
             >
-              <button className="btn">
+              <button className="btn" onClick={hideSidebar}>
                 <span className="las la-tasks"></span> <span>Tasks</span>
               </button>
             </Link>
@@ -102,7 +106,7 @@ export const Sidebar = () => {
               style={{ textDecoration: "none" }}
               onClick={() => handleButtonClick("About")}
             >
-              <button className="btn">
+              <button className="btn" onClick={hideSidebar}>
                 <span className="las la-address-card"></span> <span>About</span>
               </button>
             </Link>

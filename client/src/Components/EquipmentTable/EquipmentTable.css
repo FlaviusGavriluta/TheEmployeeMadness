@@ -1,6 +1,6 @@
 .table {
-	border-spacing: 0 15px;
-	border-collapse: separate;
+  border-spacing: 0 15px;
+  border-collapse: separate;
 }
 
 .EquipmentTable .container {
@@ -16,32 +16,31 @@
 .table thead tr td,
 .table tbody tr th,
 .table tbody tr td {
-	vertical-align: middle;
-	border: none;
+  vertical-align: middle;
+  border: none;
 }
 
 .table thead tr th:nth-last-child(1),
 .table thead tr td:nth-last-child(1),
 .table tbody tr th:nth-last-child(1),
 .table tbody tr td:nth-last-child(1) {
-	text-align: center;
-	justify-content: center;
+  text-align: center;
+  justify-content: center;
 }
 
 .table tbody tr {
-	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-	border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
 }
 
 .table tbody tr td {
-	background: #fff;
+  background: #fff;
 }
 
 .table tbody tr td:nth-child(1) {
-	border-radius: 5px 0 0 5px;
+  border-radius: 5px 0 0 5px;
 }
 
 .table tbody tr td:nth-last-child(1) {
-	border-radius: 0 5px 5px 0;}
-
-
+  border-radius: 0 5px 5px 0;
+}

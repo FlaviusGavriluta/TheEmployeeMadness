@@ -4,6 +4,7 @@ import "./EmployeeTable.css";
 import { SortBy } from "./SortBy";
 import { Edit } from "../Buttons/Edit";
 import { Delete } from "../Buttons/Delete";
+import { Add } from "../Buttons/Add";
 
 const EmployeeTable = ({ employees, onDelete }) => {
   const [sortBy, setSortBy] = useState("firstName");
@@ -42,7 +43,11 @@ const EmployeeTable = ({ employees, onDelete }) => {
   return (
     <section className="EmployeeTable">
       <div className="container">
-        {/* <SearchBy onSearch={(search) => setSearch(search)} /> */}
+        <div className="text-end">
+          <Link to={"/create"}>
+            <Add buttonText={"+ Add employee"} />
+          </Link>
+        </div>
         <table className="table">
           <SortBy
             setSortBy={setSortBy}

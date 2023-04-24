@@ -2,10 +2,16 @@ import { Link } from "react-router-dom";
 import "./EquipmentTable.css";
 import { Edit } from "../Buttons/Edit";
 import { Delete } from "../Buttons/Delete";
+import { Add } from "../Buttons/Add";
 
 const EquipmentTable = ({ equipments, onDelete }) => (
   <section className="EquipmentTable">
     <div className="container">
+      <div className="text-end">
+        <Link to={"/createEquipment"}>
+          <Add buttonText={"+ Add equipment"} />
+        </Link>
+      </div>
       <table className="table">
         <thead>
           <tr>

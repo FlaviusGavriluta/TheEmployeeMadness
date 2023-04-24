@@ -58,7 +58,7 @@ export const HeaderContent = () => {
           </div>
         </div>
       </header>
-      <main>
+      <main className="mainPage">
         <Outlet />
       </main>
     </div>

@@ -1,7 +1,7 @@
 export const Edit = () => (
   <>
     <button
-      className="btn btn-transparent btn-sm m-2 rounded-pill"
+      className="btn btn-sm m-2 rounded-pill"
       type="button"
     >
       <svg

@@ -43,12 +43,13 @@ const postData = {
 const EmployeeList = () => {
   const [loading, setLoading] = useState(true);
   const [employees, setEmployees] = useState(null);
+  const [pageNumber, setPageNumber] = useState(1);
 
   const handleAttendance = (employee) => {
-    employee.present = !employee.present
-  
-    updateEmployee(employee)
-  }
+    employee.present = !employee.present;
+
+    updateEmployee(employee);
+  };
 
   const handleDelete = (id) => {
     deleteEmployee(id);
@@ -69,7 +70,27 @@ const EmployeeList = () => {
     return <Loading />;
   }
 
-  return <EmployeeTable employees={employees} onDelete={handleDelete} handleAttendance={handleAttendance}/>;
+  const incrementPage = () => {
+    if (pageNumber * 10 >= employees.length) return;
+    setPageNumber((prevPageNumber) => prevPageNumber + 1);
+  };
+
+  const decrementPage = () => {
+    if (pageNumber === 1) return;
+    setPageNumber((prevPageNumber) => prevPageNumber - 1);
+  };
+
+  return (
+    <>
+      <EmployeeTable
+        employees={employees.slice((pageNumber - 1) * 7, pageNumber * 7)}
+        onDelete={handleDelete}
+        handleAttendance={handleAttendance}
+      />
+      <button onClick={decrementPage}>Prev</button>
+      <button onClick={incrementPage}>Next</button>
+    </>
+  );
 };
 
 export default EmployeeList;

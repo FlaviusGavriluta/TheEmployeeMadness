@@ -1,6 +1,6 @@
 import "./EmployeeForm.css";
 
-const EmployeeForm = ({ onSave, disabled, employee, onCancel }) => {
+const EmployeeForm = ({ onSave, disabled, employee, onCancel, equipments }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -50,6 +50,51 @@ const EmployeeForm = ({ onSave, disabled, employee, onCancel }) => {
           />
           <span>Position</span>
         </div>
+        <div className="control">
+          <label htmlFor="equipment">Equipment:</label>
+          <select
+            name="equipment"
+            id="equipment"
+            defaultValue={employee?.equipment}
+          >
+            {equipments?.map((equipment) => (
+              <option key={equipment._id} value={equipment._id}>
+                {equipment.name}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* <div class="btn-group">
+          <button
+            defaultValue={
+              employee
+                ? equipments.find(
+                    (equipment) => equipment._id === employee.equipment
+                  ).name
+                : null
+            }
+            type="button"
+            class="btn dropdown-toggle"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            {
+              equipments.find(
+                (equipment) => equipment._id === employee.equipment
+              ).name
+            }
+          </button>
+          <ul class="dropdown-menu">
+            {equipments.map((equipment) => (
+              <li>
+                <a class="dropdown-item" href="#">
+                  {equipment.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div> */}
         <div className="buttons pe-3 m-0 text-center">
           <button
             className="btn btn-info mt-5 p-2 mx-3"

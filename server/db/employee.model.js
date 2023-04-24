@@ -10,6 +10,10 @@ module.exports = model(
     },
     level: String,
     position: String,
+    equipment: {
+      type: Schema.Types.ObjectId,
+      ref: "Equipment",
+    },
     created: {
       type: Date,
       default: Date.now,

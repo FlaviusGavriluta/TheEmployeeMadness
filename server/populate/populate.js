@@ -9,7 +9,6 @@ const EquipmentModel = require("../db/equipment.model");
 const ViewModel = require("../db/view.model");
 
 const employeesName = require("./employee/names.json");
-const employeesStatus = require("./employee/status.json");
 const employeesLevel = require("./employee/levels.json");
 const employeesPosition = require("./employee/positions.json");
 const equipmentsName = require("./equipment/names.json");
@@ -29,11 +28,14 @@ const pick = (from) => from[Math.floor(Math.random() * (from.length - 0))];
 const populateEmployees = async () => {
   await EmployeeModel.deleteMany({});
 
+  const equipments = await EquipmentModel.find({});
+
   const employees = employeesName.map((name) => ({
     name,
     present: false,
     level: pick(employeesLevel),
     position: pick(employeesPosition),
+    equipment: pick(equipments)._id,
   }));
 
   await EmployeeModel.create(...employees);
@@ -67,8 +69,8 @@ const populateViews = async () => {
 const main = async () => {
   await mongoose.connect(mongoUrl);
 
-  await populateEmployees();
   await populateEquipment();
+  await populateEmployees();
   await populateViews();
 
   await mongoose.disconnect();

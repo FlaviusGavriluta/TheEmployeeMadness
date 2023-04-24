@@ -6,6 +6,10 @@ const fetchEmployees = () => {
   return fetch("/api/employees").then((res) => res.json());
 };
 
+const fetchEquipments = () => {
+  return fetch("/api/equipments").then((res) => res.json());
+};
+
 const deleteEmployee = (id) => {
   return fetch(`/api/employees/${id}`, { method: "DELETE" }).then((res) =>
     res.json()
@@ -42,8 +46,9 @@ const postData = {
 
 const EmployeeList = () => {
   const [loading, setLoading] = useState(true);
-  const [employees, setEmployees] = useState(null);
+  const [employees, setEmployees] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
+  const [equipments, setEquipments] = useState([]);
 
   const handleAttendance = (employee) => {
     employee.present = !employee.present;
@@ -64,6 +69,7 @@ const EmployeeList = () => {
       setLoading(false);
       setEmployees(employees);
     });
+    fetchEquipments().then((equipments) => setEquipments(equipments));
   }, []);
 
   if (loading) {
@@ -86,6 +92,7 @@ const EmployeeList = () => {
         employees={employees.slice((pageNumber - 1) * 7, pageNumber * 7)}
         onDelete={handleDelete}
         handleAttendance={handleAttendance}
+        equipments={equipments}
       />
       <button onClick={decrementPage}>Prev</button>
       <button onClick={incrementPage}>Next</button>

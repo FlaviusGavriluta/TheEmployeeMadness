@@ -6,7 +6,12 @@ import { Edit } from "../Buttons/Edit";
 import { Delete } from "../Buttons/Delete";
 import { Add } from "../Buttons/Add";
 
-const EmployeeTable = ({ employees, onDelete, handleAttendance }) => {
+const EmployeeTable = ({
+  employees,
+  onDelete,
+  handleAttendance,
+  equipments,
+}) => {
   const [sortBy, setSortBy] = useState("firstName");
   const [sortOrder, setSortOrder] = useState("asc");
 
@@ -69,6 +74,15 @@ const EmployeeTable = ({ employees, onDelete, handleAttendance }) => {
                 </td>
                 <td>{employee.level}</td>
                 <td>{employee.position}</td>
+                <td>
+                  {
+                    equipments && equipments.find(
+                      (equipment) => equipment._id === employee.equipment
+                    ) ? equipments && equipments.find(
+                      (equipment) => equipment._id === employee.equipment
+                    ).name : ''
+                  }
+                </td>
                 <td>
                   <div className="dropdown">
                     <button

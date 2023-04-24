@@ -79,6 +79,7 @@ export const SortBy = ({ setSortBy, sortOrder, setSortOrder }) => {
             Position
           </button>
         </th>
+        <th>Equipment</th>
         <th>Actions</th>
       </tr>
     </thead>

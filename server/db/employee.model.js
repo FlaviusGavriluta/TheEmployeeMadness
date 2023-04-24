@@ -14,6 +14,10 @@ module.exports = model(
       type: Schema.Types.ObjectId,
       ref: "Equipment",
     },
+    brand: {
+      type: Schema.Types.ObjectId,
+      ref: "Brand",
+    },
     created: {
       type: Date,
       default: Date.now,

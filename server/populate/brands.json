@@ -1,0 +1,8 @@
+[
+  { "name": "Dell", "country": "USA" },
+  { "name": "Lenovo", "country": "China" },
+  { "name": "Asus", "country": "Taiwan" },
+  { "name": "MSI", "country": "Taiwan" },
+  { "name": "AOC", "country": "Taiwan" },
+  { "name": "Alienware", "country": "USA" }
+]

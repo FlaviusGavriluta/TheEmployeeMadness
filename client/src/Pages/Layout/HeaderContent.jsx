@@ -48,7 +48,7 @@ export const HeaderContent = () => {
         </form>
         <div className="user-wrapper">
           <Link to={"/about"}>
-            <img src="user.jpg" width={"40px"} height={"40px"} alt="user" />
+            <img src="/user.jpg" width={"40px"} height={"40px"} alt="user" />
           </Link>
           <div>
             <h5 className="m-0 fw-bold " style={{ fontSize: "1rem" }}>

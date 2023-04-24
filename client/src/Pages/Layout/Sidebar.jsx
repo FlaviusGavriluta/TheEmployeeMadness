@@ -8,7 +8,7 @@ export const Sidebar = () => (
     >
       <div className="mt-2">
         <img
-          src="Codecool.png"
+          src="/Codecool.png"
           alt="logo"
           width="27"
           height="27"

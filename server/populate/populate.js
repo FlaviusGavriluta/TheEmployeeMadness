@@ -47,12 +47,13 @@ const populateEmployees = async () => {
 
   const equipments = await EquipmentModel.find({});
   const brands = await BrandModel.find({});
+  const positions = await PositionsModel.find({});
 
   const employees = employeesName.map((name) => ({
     name,
     present: false,
     salary: pick(salariesLevel),
-    position: pick(employeesPosition),
+    positions: pick(positions)._id,
     equipment: pick(equipments)._id,
     brand: pick(brands)._id,
     favoriteColor: pick(colors),

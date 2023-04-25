@@ -78,6 +78,12 @@ const EmployeeForm = ({
               defaultValue={employee ? employee.brand : null}
               equipments={brands}
             />
+             <Dropdown
+              name="positions"
+              id="positions"
+              defaultValue={employee ? employee.positions : null}
+              equipments={positions}
+            />
           </div>
           <div className="buttons pe-3 m-0 text-center">
             <button

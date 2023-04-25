@@ -10,7 +10,10 @@ module.exports = model(
     },
     level: String,
     salary: Number,
-    position: String,
+    positions: {
+      type: Schema.Types.ObjectId,
+      ref: "Equipment",
+    },
     equipment: {
       type: Schema.Types.ObjectId,
       ref: "Equipment",

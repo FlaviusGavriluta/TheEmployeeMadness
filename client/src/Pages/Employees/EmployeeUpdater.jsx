@@ -41,9 +41,9 @@ const EmployeeUpdater = () => {
     fetchEmployee(id).then((employee) => {
       setEmployee(employee);
       setEmployeeLoading(false);
-      fetchEquipments().then((equipments) => setEquipments(equipments));
-      fetchBrands().then((brands) => setBrands(brands));
     });
+    fetchEquipments().then((equipments) => setEquipments(equipments));
+    fetchBrands().then((brands) => setBrands(brands));
   }, [id]);
 
   const handleUpdateEmployee = (employee) => {

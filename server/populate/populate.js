@@ -26,6 +26,19 @@ if (!mongoUrl) {
 }
 
 const pick = (from) => from[Math.floor(Math.random() * (from.length - 0))];
+const salariesLevel = [50, 100, 101, 300, 301, 400, 401, 800, 801, 1000, 1500];
+
+const setLevel = (salary) => {
+  if (salary < 101) {
+    return "Junior";
+  } else if (salary > 100 && salary < 301) {
+    return "Medior";
+  } else if (salary > 300 && salary < 401) {
+    return "Senior";
+  } else if (salary > 400 && salary < 801) {
+    return "Expert";
+  } else return "godlike";
+};
 
 const populateEmployees = async () => {
   await EmployeeModel.deleteMany({});
@@ -36,12 +49,14 @@ const populateEmployees = async () => {
   const employees = employeesName.map((name) => ({
     name,
     present: false,
-    level: pick(employeesLevel),
+    salary: pick(salariesLevel),
     position: pick(employeesPosition),
     equipment: pick(equipments)._id,
     brand: pick(brands)._id,
     favoriteColor: pick(colors),
   }));
+
+  employees.map((employee) => (employee.level = setLevel(employee.salary)));
 
   await EmployeeModel.create(...employees);
   console.log("Employees created");

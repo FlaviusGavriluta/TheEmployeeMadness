@@ -9,6 +9,7 @@ module.exports = model(
       default: false,
     },
     level: String,
+    salary: Number,
     position: String,
     equipment: {
       type: Schema.Types.ObjectId,

@@ -51,7 +51,6 @@ const postData = {
 const EmployeeList = () => {
   const [loading, setLoading] = useState(true);
   const [employees, setEmployees] = useState([]);
-  const [pageNumber, setPageNumber] = useState(1);
   const [equipments, setEquipments] = useState([]);
   const [brands, setBrands] = useState([]);
 
@@ -80,28 +79,14 @@ const EmployeeList = () => {
     return <Loading />;
   }
 
-  const incrementPage = () => {
-    if (pageNumber * 10 >= employees.length) return;
-    setPageNumber((prevPageNumber) => prevPageNumber + 1);
-  };
-
-  const decrementPage = () => {
-    if (pageNumber === 1) return;
-    setPageNumber((prevPageNumber) => prevPageNumber - 1);
-  };
-
   return (
-    <>
-      <EmployeeTable
-        employees={employees.slice((pageNumber - 1) * 7, pageNumber * 7)}
-        onDelete={handleDelete}
-        handleAttendance={handleAttendance}
-        equipments={equipments}
-        brands={brands}
-      />
-      <button onClick={decrementPage}>Prev</button>
-      <button onClick={incrementPage}>Next</button>
-    </>
+    <EmployeeTable
+      employees={employees}
+      onDelete={handleDelete}
+      handleAttendance={handleAttendance}
+      equipments={equipments}
+      brands={brands}
+    />
   );
 };
 

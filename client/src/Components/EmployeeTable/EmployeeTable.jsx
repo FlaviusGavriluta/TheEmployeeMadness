@@ -5,6 +5,7 @@ import { HeaderTable } from "./HeaderTable";
 import { Edit } from "../Buttons/Edit";
 import { Delete } from "../Buttons/Delete";
 import { Add } from "../Buttons/Add";
+import { PaginationButtons } from "./PaginationButtons";
 
 const EmployeeTable = ({
   employees,
@@ -15,6 +16,7 @@ const EmployeeTable = ({
 }) => {
   const [sortBy, setSortBy] = useState("firstName");
   const [sortOrder, setSortOrder] = useState("asc");
+  const [pageNumber, setPageNumber] = useState(1);
 
   const parseName = (name) => {
     const names = name.split(" ");
@@ -25,7 +27,7 @@ const EmployeeTable = ({
   };
 
   const sortedEmployees = employees
-    ? employees.sort((a, b) => {
+    ? employees.slice((pageNumber - 1) * 5, pageNumber * 5).sort((a, b) => {
         let comparison = 0;
         switch (sortBy) {
           case "level":
@@ -78,19 +80,24 @@ const EmployeeTable = ({
                 <td>{employee.level}</td>
                 <td>{employee.position}</td>
                 <td>
-                  {equipments && equipments.find(
+                  {equipments &&
+                  equipments.find(
                     (equipment) => equipment._id === employee.equipment
                   )
-                    ? equipments && equipments.find(
+                    ? equipments &&
+                      equipments.find(
                         (equipment) => equipment._id === employee.equipment
                       ).name
                     : ""}
                 </td>
                 <td>
-                  {brands && brands.find((brand) => brand._id === employee.brand)
-                    ? brands && brands.find((brand) => brand._id === employee.brand).name
+                  {brands &&
+                  brands.find((brand) => brand._id === employee.brand)
+                    ? brands &&
+                      brands.find((brand) => brand._id === employee.brand).name
                     : ""}
                 </td>
+                <td>{employee.favoriteColor}</td>
                 <td>
                   <div className="dropdown">
                     <button
@@ -117,6 +124,11 @@ const EmployeeTable = ({
             ))}
           </tbody>
         </table>
+        <PaginationButtons
+          pageNumber={pageNumber}
+          setPageNumber={setPageNumber}
+          employees={employees}
+        />
       </div>
     </section>
   );

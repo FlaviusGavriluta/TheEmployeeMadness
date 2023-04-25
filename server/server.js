@@ -5,6 +5,7 @@ const { connect } = require("mongoose");
 const employeeRoutes = require("./routes/employeeRoutes");
 const equipmentRoutes = require("./routes/equipmentRoutes");
 const brandRoutes = require("./routes/brandRoutes");
+const positionsRoutes = require("./routes/positionsRoutes")
 const viewsRoutes = require("./routes/viewsRoutes");
 
 const { MONGO_URL, PORT } = process.env;
@@ -23,6 +24,7 @@ app.use(cors());
 app.use("/api/employees", employeeRoutes);
 app.use("/api/equipments", equipmentRoutes);
 app.use("/api/brands/", brandRoutes);
+app.use("/api/positions/", positionsRoutes);
 app.use("/api/views/", viewsRoutes);
 
 //Connect to MongoDB and Start the Server

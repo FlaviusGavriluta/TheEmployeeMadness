@@ -9,6 +9,7 @@ const EmployeeForm = ({
   onCancel,
   equipments,
   brands,
+  positions
 }) => {
   const onSubmit = (e) => {
     e.preventDefault();

@@ -1,6 +1,7 @@
 import "./EmployeeForm.css";
 import { Input } from "./Input";
 import { Dropdown } from "./Dropdown";
+import { useState } from "react";
 
 const EmployeeForm = ({
   employee,
@@ -10,6 +11,24 @@ const EmployeeForm = ({
   equipments,
   brands,
 }) => {
+  const [checkSalary, setCheckSalary] = useState(employee.salary);
+
+  const handleSalary = (e) => {
+    setCheckSalary(e.target.value);
+  };
+
+  const setLevel = (salary) => {
+    if (salary < 101) {
+      return "Junior";
+    } else if (salary > 100 && salary < 301) {
+      return "Medior";
+    } else if (salary > 300 && salary < 401) {
+      return "Senior";
+    } else if (salary > 400 && salary < 801) {
+      return "Expert";
+    } else return "godlike";
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -42,16 +61,24 @@ const EmployeeForm = ({
               label="Name"
             />
             <Input
-              defaultValue={employee ? employee.level : null}
-              name="level"
-              id="level"
-              label="Level"
-            />
-            <Input
               defaultValue={employee ? employee.position : null}
               name="position"
               id="position"
               label="Position"
+            />
+            <Input
+              value={setLevel(checkSalary)}
+              name="level"
+              id="level"
+              label="Level"
+              disabled
+            />
+            <Input
+              defaultValue={employee ? employee.salary : null}
+              name="salary"
+              id="salary"
+              label="Salary"
+              onChange={handleSalary}
             />
             <Input
               defaultValue={employee ? employee.favoriteColor : null}

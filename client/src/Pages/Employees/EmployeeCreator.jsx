@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import EmployeeForm from "../../Components/EmployeeForm";
 
@@ -31,7 +31,7 @@ const EmployeeCreator = () => {
     setEmployeeLoading(false);
     fetchEquipments().then((equipments) => setEquipments(equipments));
     fetchBrands().then((brands) => setBrands(brands));
-  });
+  }, []);
 
   const handleCreateEmployee = (employee) => {
     setLoading(true);

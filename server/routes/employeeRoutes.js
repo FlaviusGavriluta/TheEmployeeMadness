@@ -3,6 +3,18 @@ const EmployeeModel = require("../db/employee.model");
 
 const router = express.Router();
 
+const setLevel = (salary) => {
+  if (salary < 101) {
+    return "Junior";
+  } else if (salary > 100 && salary < 301) {
+    return "Medior";
+  } else if (salary > 300 && salary < 401) {
+    return "Senior";
+  } else if (salary > 400 && salary < 801) {
+    return "Expert";
+  } else return "godlike";
+};
+
 router.get("/", async (req, res, next) => {
   try {
     const employees = await EmployeeModel.find().sort({ created: "desc" });
@@ -48,7 +60,7 @@ router.get("/name/:search", async (req, res, next) => {
 
 router.get("/api/missing", async (req, res, next) => {
   try {
-    const missing = await EmployeeModel.find({present: "false"});
+    const missing = await EmployeeModel.find({ present: "false" });
     return res.json(missing);
   } catch (err) {
     return next(err);
@@ -56,6 +68,7 @@ router.get("/api/missing", async (req, res, next) => {
 });
 
 router.post("/", async (req, res, next) => {
+  req.body.level = setLevel(req.body.salary);
   const employee = req.body;
   try {
     const saved = await EmployeeModel.create(employee);
@@ -66,6 +79,7 @@ router.post("/", async (req, res, next) => {
 });
 
 router.patch("/:id", async (req, res, next) => {
+  req.body.level = setLevel(req.body.salary);
   try {
     const employee = await EmployeeModel.findByIdAndUpdate(
       req.params.id,

@@ -23,32 +23,35 @@ const EquipmentForm = ({ onSave, disabled, equipment, onCancel }) => {
         <h2 className="textForm text-dark text-center mx-3 mt-3">
           Create Equipment
         </h2>
-        <div className="inputBox">
-          <input
-            defaultValue={equipment ? equipment.name : null}
-            name="name"
-            id="name"
-            required="required"
-          />
-          <span>Name</span>
-        </div>
-        <div className="inputBox">
-          <input
-            defaultValue={equipment ? equipment.type : null}
-            name="type"
-            id="type"
-            required="required"
-          />
-          <span>Type</span>
-        </div>
-        <div className="inputBox">
-          <input
-            defaultValue={equipment ? equipment.amount : null}
-            name="amount"
-            id="amount"
-            required="required"
-          />
-          <span>Amount</span>
+        <div className="input-container">
+          {" "}
+          <div className="inputBox">
+            <input
+              defaultValue={equipment ? equipment.name : null}
+              name="name"
+              id="name"
+              required="required"
+            />
+            <span>Name</span>
+          </div>
+          <div className="inputBox">
+            <input
+              defaultValue={equipment ? equipment.type : null}
+              name="type"
+              id="type"
+              required="required"
+            />
+            <span>Type</span>
+          </div>
+          <div className="inputBox">
+            <input
+              defaultValue={equipment ? equipment.amount : null}
+              name="amount"
+              id="amount"
+              required="required"
+            />
+            <span>Amount</span>
+          </div>
         </div>
         <div className="buttons pe-3 m-0 text-center">
           <button

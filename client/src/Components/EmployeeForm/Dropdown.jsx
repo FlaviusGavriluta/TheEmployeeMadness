@@ -1,6 +1,6 @@
 export const Dropdown = ({ name, id, defaultValue, equipments }) => {
   return (
-    <div className="control">
+    <div className="selector control">
       <select name={name} id={id} defaultValue={defaultValue}>
         <option value="" disabled hidden>
           Select

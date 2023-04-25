@@ -1,6 +1,15 @@
 import "./EmployeeForm.css";
+import { Input } from "./Input";
+import { Dropdown } from "./Dropdown";
 
-const EmployeeForm = ({ onSave, disabled, employee, onCancel, equipments }) => {
+const EmployeeForm = ({
+  employee,
+  onSave,
+  disabled,
+  onCancel,
+  equipments,
+  brands,
+}) => {
   const onSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -11,107 +20,76 @@ const EmployeeForm = ({ onSave, disabled, employee, onCancel, equipments }) => {
       acc[k] = v;
       return acc;
     }, {});
+
     return onSave(employee);
   };
 
   return (
-    <div className="mainForm">
-      <form onSubmit={onSubmit}>
-        {employee && (
-          <input type="hidden" name="_id" defaultValue={employee._id} />
-        )}
-        <h2 className="textForm text-dark text-center mx-3 mt-3">
-          Create Employee
-        </h2>
-        <div className="inputBox">
-          <input
-            defaultValue={employee ? employee.name : null}
-            name="name"
-            id="name"
-            required="required"
-          />
-          <span>Name</span>
-        </div>
-        <div className="inputBox">
-          <input
-            defaultValue={employee ? employee.level : null}
-            name="level"
-            id="level"
-            required="required"
-          />
-          <span>Level</span>
-        </div>
-        <div className="inputBox">
-          <input
-            defaultValue={employee ? employee.position : null}
-            name="position"
-            id="position"
-            required="required"
-          />
-          <span>Position</span>
-        </div>
-        <div className="control">
-          <label htmlFor="equipment">Equipment:</label>
-          <select
-            name="equipment"
-            id="equipment"
-            defaultValue={employee?.equipment}
-          >
-            {equipments?.map((equipment) => (
-              <option key={equipment._id} value={equipment._id}>
-                {equipment.name}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        {/* <div class="btn-group">
-          <button
-            defaultValue={
-              employee
-                ? equipments.find(
-                    (equipment) => equipment._id === employee.equipment
-                  ).name
-                : null
-            }
-            type="button"
-            class="btn dropdown-toggle"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            {
-              equipments.find(
-                (equipment) => equipment._id === employee.equipment
-              ).name
-            }
-          </button>
-          <ul class="dropdown-menu">
-            {equipments.map((equipment) => (
-              <li>
-                <a class="dropdown-item" href="#">
-                  {equipment.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div> */}
-        <div className="buttons pe-3 m-0 text-center">
-          <button
-            className="btn btn-info mt-5 p-2 mx-3"
-            type="submit"
-            disabled={disabled}
-          >
-            {employee ? "Update Employee" : "Create Employee"}
-          </button>
-          <button
-            className="btn btn-secondary mt-5 p-2 mx-1"
-            type="button"
-            onClick={onCancel}
-          >
-            Cancel
-          </button>
-        </div>
-      </form>
+    <div className="mainForm container text-center">
+      <div className="row justify-content-md-center">
+        <form onSubmit={onSubmit} className="form">
+          {employee && (
+            <input type="hidden" name="_id" defaultValue={employee._id} />
+          )}
+          <h2 className="textForm text-dark text-center mx-3 pt-0 mt-0">
+            Create Employee
+          </h2>
+          <div className="input-container">
+            <Input
+              defaultValue={employee ? employee.name : null}
+              name="name"
+              id="name"
+              label="Name"
+            />
+            <Input
+              defaultValue={employee ? employee.level : null}
+              name="level"
+              id="level"
+              label="Level"
+            />
+            <Input
+              defaultValue={employee ? employee.position : null}
+              name="position"
+              id="position"
+              label="Position"
+            />
+            <Input
+              defaultValue={employee ? employee.favoriteColor : null}
+              name="favoriteColor"
+              id="favoriteColor"
+              label="Favorite Color"
+            />
+            <Dropdown
+              name="equipment"
+              id="equipment"
+              defaultValue={employee ? employee.equipment : null}
+              equipments={equipments}
+            />
+            <Dropdown
+              name="brand"
+              id="brand"
+              defaultValue={employee ? employee.brand : null}
+              equipments={brands}
+            />
+          </div>
+          <div className="buttons pe-3 m-0 text-center">
+            <button
+              className="btn btn-info mt-5 p-2 mx-3"
+              type="submit"
+              disabled={disabled}
+            >
+              {employee ? "Update Employee" : "Create Employee"}
+            </button>
+            <button
+              className="btn btn-secondary mt-5 p-2 mx-1"
+              type="button"
+              onClick={onCancel}
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

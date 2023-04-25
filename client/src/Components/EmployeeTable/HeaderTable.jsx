@@ -1,3 +1,5 @@
+import { Dropdown, DropdownButton } from "react-bootstrap";
+
 export const HeaderTable = ({ setSortBy, sortOrder, setSortOrder }) => {
   const toggleSortOrder = () => {
     setSortOrder(sortOrder === "asc" ? "desc" : "asc");
@@ -6,55 +8,35 @@ export const HeaderTable = ({ setSortBy, sortOrder, setSortOrder }) => {
     <thead>
       <tr>
         <th>
-          <div className="dropdown">
-            <a
-              className="dropdown-toggle"
-              href="#"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
+          <DropdownButton id="dropdown-basic-button" title="Name">
+            <Dropdown.Item
+              href="#/action-1"
+              onClick={() => {
+                setSortBy("firstName");
+                toggleSortOrder();
+              }}
             >
-              <button className="btn m-0 ps-2 fw-bold">Name</button>
-            </a>
-            <ul className="dropdown-menu">
-              <li>
-                <a
-                  className="dropdown-item"
-                  href="#"
-                  onClick={() => {
-                    setSortBy("firstName");
-                    toggleSortOrder();
-                  }}
-                >
-                  First name{" "}
-                </a>
-              </li>
-              <li>
-                <a
-                  className="dropdown-item"
-                  href="#"
-                  onClick={() => {
-                    setSortBy("lastName");
-                    toggleSortOrder();
-                  }}
-                >
-                  Last name{" "}
-                </a>
-              </li>
-              <li>
-                <a
-                  className="dropdown-item"
-                  href="#"
-                  onClick={() => {
-                    setSortBy("middleName");
-                    toggleSortOrder();
-                  }}
-                >
-                  Middle name{" "}
-                </a>
-              </li>
-            </ul>
-          </div>
+              First name
+            </Dropdown.Item>
+            <Dropdown.Item
+              href="#/action-2"
+              onClick={() => {
+                setSortBy("lastName");
+                toggleSortOrder();
+              }}
+            >
+              Last name
+            </Dropdown.Item>
+            <Dropdown.Item
+              href="#/action-3"
+              onClick={() => {
+                setSortBy("middleName");
+                toggleSortOrder();
+              }}
+            >
+              Middle name
+            </Dropdown.Item>
+          </DropdownButton>
         </th>
         <th>Present</th>
         <th>
@@ -101,6 +83,7 @@ export const HeaderTable = ({ setSortBy, sortOrder, setSortOrder }) => {
             Brand
           </button>
         </th>
+        <th>Favorite Color</th>
         <th>Actions</th>
       </tr>
     </thead>

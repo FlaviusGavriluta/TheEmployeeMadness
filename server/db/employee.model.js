@@ -18,6 +18,7 @@ module.exports = model(
       type: Schema.Types.ObjectId,
       ref: "Brand",
     },
+    favoriteColor: String,
     created: {
       type: Date,
       default: Date.now,

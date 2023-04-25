@@ -8,7 +8,6 @@ const EmployeeModel = require("../db/employee.model");
 const EquipmentModel = require("../db/equipment.model");
 const BrandModel = require("../db/brand.model");
 const ViewModel = require("../db/view.model");
-
 const employeesName = require("./employee/names.json");
 const employeesLevel = require("./employee/levels.json");
 const employeesPosition = require("./employee/positions.json");
@@ -16,6 +15,7 @@ const equipmentsName = require("./equipment/names.json");
 const equipmentTypes = require("./equipment/types.json");
 const amounts = require("./equipment/amounts.json");
 const brands = require("./brands.json");
+const colors = require("./colors.json");
 const pageViews = require("./views.json");
 
 const mongoUrl = process.env.MONGO_URL;
@@ -40,6 +40,7 @@ const populateEmployees = async () => {
     position: pick(employeesPosition),
     equipment: pick(equipments)._id,
     brand: pick(brands)._id,
+    favoriteColor: pick(colors),
   }));
 
   await EmployeeModel.create(...employees);

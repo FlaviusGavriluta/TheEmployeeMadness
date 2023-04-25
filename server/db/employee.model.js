@@ -12,7 +12,7 @@ module.exports = model(
     salary: Number,
     positions: {
       type: Schema.Types.ObjectId,
-      ref: "Equipment",
+      ref: "Positions",
     },
     equipment: {
       type: Schema.Types.ObjectId,

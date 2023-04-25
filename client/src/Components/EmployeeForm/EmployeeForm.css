@@ -38,6 +38,7 @@
   color: #fff;
   font-size: 1em;
   transition: 0.5s;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
 }
 
 .inputBox span {
@@ -64,10 +65,10 @@
 }
 
 .inputBox:nth-child(2) input:valid ~ span,
-.inputBox:nth-child(2) input:focus ~ span{
-    background: #00dfc4 ;
-    color: #0b1218;
-    border-radius: 2px;
+.inputBox:nth-child(2) input:focus ~ span {
+  background: #00dfc4;
+  color: #0b1218;
+  border-radius: 2px;
 }
 
 .inputBox input:valid,
@@ -76,6 +77,85 @@
 }
 
 .textForm {
-  color:#0b1218;
+  color: #0b1218;
   margin-bottom: 5rem;
 }
+
+.selector::before {
+  content: "";
+  position: absolute;
+  right: 45px;
+  top: 16px;
+  z-index: 10000;
+  width: 8px;
+  height: 8px;
+  border: 2px solid #0b1218;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+  transform: rotate(-225deg);
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.selector.active::before {
+  top: 22px;
+  transform: rotate(-45deg);
+}
+
+.selector input {
+  width: 80%;
+  cursor: pointer;
+  background: #0b1218;
+  border: none;
+  outline: none;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  padding: 12px 20px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.selector .option {
+  position: absolute;
+  bottom: 60px;
+  left: 30px;
+  width: 80%;
+  background: #0b1218;
+  color: #fff;
+  box-shadow: 0 30px 30px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  overflow: hidden;
+  border: 2px solid #00dfc4;
+  border: #00dfc4;
+  display: none;
+  opacity: 95%;
+}
+
+.selector.active .option {
+  display: block;
+}
+
+.selector .option div {
+  padding: 12px 20px;
+  cursor: pointer;
+}
+
+.selector .option div:hover {
+  background: #00dfc4;
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888; 
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f2f2f2;
+  border-radius: 5px; 
+  box-shadow: inset 0 0 5px #ddd;
+}
+

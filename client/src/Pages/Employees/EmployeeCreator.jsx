@@ -23,12 +23,10 @@ const fetchBrands = () => {
 const EmployeeCreator = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const [employeeLoading, setEmployeeLoading] = useState(true);
   const [equipments, setEquipments] = useState([]);
   const [brands, setBrands] = useState([]);
 
   useEffect(() => {
-    setEmployeeLoading(false);
     fetchEquipments().then((equipments) => setEquipments(equipments));
     fetchBrands().then((brands) => setBrands(brands));
   }, []);

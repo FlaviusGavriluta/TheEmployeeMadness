@@ -1,14 +1,11 @@
 import React, { useState } from "react";
 import "./EmployeeForm.css";
 
-export const Input = ({ defaultValue, name, id, label, disabled, onChange }) => {
+export const Input = ({ defaultValue, name, id, label, disabled }) => {
   const [value, setValue] = useState(defaultValue || "");
 
   const handleChange = (event) => {
     setValue(event.target.value);
-    if (onChange) {
-      onChange(event);
-    }
   };
 
   return (

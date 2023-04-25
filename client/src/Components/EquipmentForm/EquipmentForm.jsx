@@ -21,7 +21,7 @@ const EquipmentForm = ({ onSave, disabled, equipment, onCancel }) => {
           <input type="hidden" name="_id" defaultValue={equipment._id} />
         )}
         <h2 className="textForm text-dark text-center mx-3 mt-3">
-          Create Equipment
+          {equipment? "Update Equipment":"Create Equipment"}
         </h2>
         <div className="input-container">
           {" "}

@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const EmployeeModel = require("../db/employee.model");
 const EquipmentModel = require("../db/equipment.model");
 const BrandModel = require("../db/brand.model");
+const PositionsModel = require("../db/positions.model");
 const ViewModel = require("../db/view.model");
 const employeesName = require("./employee/names.json");
 const employeesLevel = require("./employee/levels.json");
@@ -15,6 +16,7 @@ const equipmentsName = require("./equipment/names.json");
 const equipmentTypes = require("./equipment/types.json");
 const amounts = require("./equipment/amounts.json");
 const brands = require("./brands.json");
+const positions = require("./positions.json");
 const colors = require("./colors.json");
 const pageViews = require("./views.json");
 
@@ -87,6 +89,18 @@ const populateBrands = async () => {
   console.log("Brands created");
 };
 
+const populatePositions = async () => {
+  await PositionsModel.deleteMany({});
+
+  const positionsObj = positions.map((position) => ({
+    name: position.name,
+    salary: position.salary,
+  }));
+
+  await PositionsModel.create(...positionsObj);
+  console.log("Positions created");
+};
+
 const populateViews = async () => {
   await ViewModel.deleteMany({});
 
@@ -103,6 +117,7 @@ const main = async () => {
 
   await populateEquipment();
   await populateBrands();
+  await populatePositions();
   await populateEmployees();
   await populateViews();
 

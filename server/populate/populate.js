@@ -20,112 +20,113 @@ const positions = require("./positions.json");
 const colors = require("./colors.json");
 const pageViews = require("./views.json");
 
-const mongoUrl = process.env.MONGO_URL;
+//const mongoUrl = process.env.MONGO_URL;
+const mongoUrl = 'mongodb://127.0.0.1:27017/Employees';
 
 if (!mongoUrl) {
-  console.error("Missing MONGO_URL environment variable");
-  process.exit(1); // exit the current program
+    console.error("Missing MONGO_URL environment variable");
+    process.exit(1); // exit the current program
 }
 
 const pick = (from) => from[Math.floor(Math.random() * (from.length - 0))];
 const salariesLevel = [50, 100, 101, 300, 301, 400, 401, 800, 801, 1000, 1500];
 
 const setLevel = (salary) => {
-  if (salary < 101) {
-    return "Junior";
-  } else if (salary > 100 && salary < 301) {
-    return "Medior";
-  } else if (salary > 300 && salary < 401) {
-    return "Senior";
-  } else if (salary > 400 && salary < 801) {
-    return "Expert";
-  } else return "godlike";
+    if (salary < 101) {
+        return "Junior";
+    } else if (salary > 100 && salary < 301) {
+        return "Medior";
+    } else if (salary > 300 && salary < 401) {
+        return "Senior";
+    } else if (salary > 400 && salary < 801) {
+        return "Expert";
+    } else return "godlike";
 };
 
 const populateEmployees = async () => {
-  await EmployeeModel.deleteMany({});
+    await EmployeeModel.deleteMany({});
 
-  const equipments = await EquipmentModel.find({});
-  const brands = await BrandModel.find({});
-  const positions = await PositionsModel.find({});
+    const equipments = await EquipmentModel.find({});
+    const brands = await BrandModel.find({});
+    const positions = await PositionsModel.find({});
 
-  const employees = employeesName.map((name) => ({
-    name,
-    present: false,
-    salary: pick(salariesLevel),
-    positions: pick(positions)._id,
-    equipment: pick(equipments)._id,
-    brand: pick(brands)._id,
-    favoriteColor: pick(colors),
-  }));
+    const employees = employeesName.map((name) => ({
+        name,
+        present: false,
+        salary: pick(salariesLevel),
+        positions: pick(positions)._id,
+        equipment: pick(equipments)._id,
+        brand: pick(brands)._id,
+        favoriteColor: pick(colors),
+    }));
 
-  employees.map((employee) => (employee.level = setLevel(employee.salary)));
+    employees.map((employee) => (employee.level = setLevel(employee.salary)));
 
-  await EmployeeModel.create(...employees);
-  console.log("Employees created");
+    await EmployeeModel.create(...employees);
+    console.log("Employees created");
 };
 
 const populateEquipment = async () => {
-  await EquipmentModel.deleteMany({});
+    await EquipmentModel.deleteMany({});
 
-  const equipments = equipmentsName.map((name, i) => ({
-    name,
-    type: equipmentTypes[i],
-    amount: amounts[i],
-  }));
+    const equipments = equipmentsName.map((name, i) => ({
+        name,
+        type: equipmentTypes[i],
+        amount: amounts[i],
+    }));
 
-  await EquipmentModel.create(...equipments);
-  console.log("Equipments created");
+    await EquipmentModel.create(...equipments);
+    console.log("Equipments created");
 };
 
 const populateBrands = async () => {
-  await BrandModel.deleteMany({});
+    await BrandModel.deleteMany({});
 
-  const brandsObj = brands.map((brand) => ({
-    name: brand.name,
-    country: brand.country,
-  }));
+    const brandsObj = brands.map((brand) => ({
+        name: brand.name,
+        country: brand.country,
+    }));
 
-  await BrandModel.create(...brandsObj);
-  console.log("Brands created");
+    await BrandModel.create(...brandsObj);
+    console.log("Brands created");
 };
 
 const populatePositions = async () => {
-  await PositionsModel.deleteMany({});
+    await PositionsModel.deleteMany({});
 
-  const positionsObj = positions.map((position) => ({
-    name: position.name,
-    salary: position.salary,
-  }));
+    const positionsObj = positions.map((position) => ({
+        name: position.name,
+        salary: position.salary,
+    }));
 
-  await PositionsModel.create(...positionsObj);
-  console.log("Positions created");
+    await PositionsModel.create(...positionsObj);
+    console.log("Positions created");
 };
 
 const populateViews = async () => {
-  await ViewModel.deleteMany({});
+    await ViewModel.deleteMany({});
 
-  const views = pageViews.map((page) => ({
-    page,
-  }));
+    const views = pageViews.map((page) => ({
+        page,
+    }));
 
-  await ViewModel.create(...views);
-  console.log("Views created");
+    await ViewModel.create(...views);
+    console.log("Views created");
 };
 
 const main = async () => {
-  await mongoose.connect(mongoUrl);
+    await mongoose.connect(mongoUrl);
 
-  await populateEquipment();
-  await populateBrands();
-  await populatePositions();
-  await populateEmployees();
-  await populateViews();
+    await populateEquipment();
+    await populateBrands();
+    await populatePositions();
+    await populateEmployees();
+    await populateViews();
 
-  await mongoose.disconnect();
+    await mongoose.disconnect();
 };
 
 main().catch((error) => {
-  console.error(error);
-  process.exit(1);
+    console.error(error);
+    process.exit(1);
 });

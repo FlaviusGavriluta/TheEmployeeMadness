@@ -6,7 +6,7 @@ const RecentGrids = () => (
           <h6 className="fw-bold my-1">Favorite Brands</h6>
         </div>
         <div className="card-body my-1">
-          <h6>BlaBla BLiBLi</h6>
+          <h6>Work in progress . . .</h6>
         </div>
       </div>
     </div>
